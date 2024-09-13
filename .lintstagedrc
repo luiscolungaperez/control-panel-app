@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx}": ["prettier --write", "npm run lint:fix"],
+  "*.json": ["prettier --write"]
+}
