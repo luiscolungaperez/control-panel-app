@@ -1,0 +1,13 @@
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'aside content';
+  grid-template-columns: minmax(70px, 70px);
+  grid-template-rows: 64px 1fr;
+}
+
+.content {
+  grid-area: content;
+}

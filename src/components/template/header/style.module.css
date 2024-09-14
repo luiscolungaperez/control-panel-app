@@ -1,0 +1,13 @@
+.header {
+  box-sizing: border-box;
+  grid-area: header;
+  background-color: var(--bg-element);
+  height: 64px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 35px -9px rgba(0, 0, 0, 0.75);
+}
