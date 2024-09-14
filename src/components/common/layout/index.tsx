@@ -1,6 +1,6 @@
-import { Header } from '@/components/template/header';
+import { Aside } from '@/components/common/aside';
+import { Header } from '@/components/common/header';
 import { Outlet } from 'react-router-dom';
-import { Aside } from '../aside';
 import styles from './style.module.css';
 
 export const Layout: React.FC = () => {
