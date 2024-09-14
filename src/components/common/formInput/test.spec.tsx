@@ -1,12 +1,16 @@
 import { Form } from '@/types/Form';
+import { loginSchema } from '@/utils/validations/login.schema';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, Resolver, useForm } from 'react-hook-form';
 import { afterEach, describe, expect, it } from 'vitest';
 import { FormInput } from '.';
 
 const renderWithForm = (props: Partial<Form.FormInputProps> = {}) => {
   const Wrapper = () => {
-    const { control, register, handleSubmit } = useForm<FieldValues>();
+    const { control, register, handleSubmit } = useForm<FieldValues>({
+      resolver: yupResolver(loginSchema) as unknown as Resolver<FieldValues>,
+    });
 
     return (
       <form onSubmit={handleSubmit(() => {})}>
@@ -43,7 +47,7 @@ describe('Input Component', () => {
     fireEvent.submit(screen.getByText('Submit'));
 
     expect(
-      await screen.findByText(/This field is required/i),
+      await screen.findByText(/Este campo es requerido./i),
     ).toBeInTheDocument();
   });
 });

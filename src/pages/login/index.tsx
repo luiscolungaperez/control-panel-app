@@ -1,31 +1,30 @@
 import { FormInput } from '@/components/common/formInput';
-import { FieldValues, useForm } from 'react-hook-form';
+import { useLogin } from './hook';
 import styles from './style.module.css';
 
 const Login = () => {
-  const { control, register, handleSubmit } = useForm<FieldValues>();
+  const { control, handleSubmit, onSubmit, register } = useLogin();
 
   return (
     <main className={styles.main}>
-      <form onSubmit={handleSubmit(() => {})}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <FormInput
-          name='emial'
-          label='Correo electronico'
+          name='email'
+          label='Correo electronico:'
           type='email'
           control={control}
           register={register}
           required
         />
         <FormInput
-          name='text'
-          label='Texto'
-          type='text'
+          name='password'
+          label='Contraseña: '
+          type='password'
           control={control}
           register={register}
           required
         />
-
-        <button type='submit'>Submit</button>
+        <button type='submit'>Iniciar sesión</button>
       </form>
     </main>
   );

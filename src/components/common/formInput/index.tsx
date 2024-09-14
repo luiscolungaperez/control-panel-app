@@ -33,7 +33,7 @@ export const FormInput: React.FC<Form.FormInputProps> = ({
         type={type}
         {...register(name, { required })}
       />
-      {error && <span>{error.message || 'This field is required'}</span>}
+      {error && <span>{error.message}</span>}
     </div>
   );
 };
