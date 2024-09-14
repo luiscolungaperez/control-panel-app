@@ -1,13 +1,8 @@
-.layout {
-  min-height: 100vh;
-  display: grid;
-  grid-template-areas:
-    'header header'
-    'aside content';
-  grid-template-columns: minmax(70px, 70px);
-  grid-template-rows: 64px 1fr;
-}
-
-.content {
-  grid-area: content;
+.main {
+  margin-top: 80px;
+  width: 100%;
+  bottom: 0;
+  height: calc(100vh - 64px);
+  z-index: 1;
+  padding: 0.5rem 1rem;
 }

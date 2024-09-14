@@ -1,9 +1,11 @@
 .header {
-  box-sizing: border-box;
-  grid-area: header;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
   background-color: var(--bg-element);
-  height: 64px;
-  padding: 8px 16px;
+  height: 4rem;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

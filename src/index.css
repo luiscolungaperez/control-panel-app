@@ -1,9 +1,15 @@
 :root {
-  --bg-element: #ffffff1a;
-  --bg-element-aside: #ffffff1a;
+  --bg-element: #3a3a3a;
+  --bg-element-aside: #3b3b3b;
+
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
 }
 
 * {
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
@@ -11,7 +17,6 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
