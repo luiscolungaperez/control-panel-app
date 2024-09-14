@@ -1,0 +1,72 @@
+.navigation {
+  position: absolute;
+  bottom: 0;
+  grid-area: aside;
+  width: 100%;
+  background-color: var(--bg-element-aside);
+  display: flex;
+  height: calc(100vh - 4rem);
+  z-index: 100;
+
+  @media (width >= 640px) {
+    max-width: 250px;
+  }
+
+  & .list {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  & .option {
+    color: white;
+    padding: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: 300ms ease-in-out;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    &:hover {
+      background-color: #ffffff60;
+    }
+  }
+}
+
+.open {
+  animation: open 0.3s ease-in-out forwards;
+}
+
+.close {
+  animation: close 0.3s ease-in-out forwards;
+}
+
+@keyframes close {
+  from {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes open {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+  }
+}
