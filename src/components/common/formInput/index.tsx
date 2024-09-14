@@ -1,6 +1,9 @@
 import { Form } from '@/types/Form';
 import { useController } from 'react-hook-form';
 
+import { clsx } from 'clsx';
+import styles from './style.module.css';
+
 export const FormInput: React.FC<Form.FormInputProps> = ({
   name,
   control,
@@ -17,13 +20,17 @@ export const FormInput: React.FC<Form.FormInputProps> = ({
   });
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className={styles.formInput}>
+      <label
+        className={clsx(styles.label, required && styles['label-required'])}
+        htmlFor={name}>
+        {label}
+      </label>
 
       <input
+        className={clsx(styles.input)}
         id={name}
         type={type}
-        autoComplete='off'
         {...register(name, { required })}
       />
       {error && <span>{error.message || 'This field is required'}</span>}
