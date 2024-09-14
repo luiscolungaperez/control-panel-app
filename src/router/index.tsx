@@ -1,4 +1,4 @@
-import { Layout } from '@/components/template/layout';
+import { Layout } from '@/components/common/layout';
 import Dashboard from '@/pages/dashboard';
 import Login from '@/pages/login';
 import { createBrowserRouter } from 'react-router-dom';
