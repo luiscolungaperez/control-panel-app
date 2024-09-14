@@ -14,7 +14,7 @@ export const Header: React.FC<Props> = ({ handleMenu }) => {
   const handleLogOut = () => {
     localStorage.removeItem('Authorization');
 
-    navigate('/');
+    navigate('/login');
   };
 
   return (

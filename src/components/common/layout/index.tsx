@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
   return (
     <>
       <Header handleMenu={updateIsOpen} />
-      <Navegation isOpen={isOpen} />
+      <Navegation isOpen={isOpen} handleMenu={updateIsOpen} />
       <main className={styles.main}>
         <Outlet />
       </main>
