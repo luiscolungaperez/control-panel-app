@@ -1,4 +1,4 @@
-export const person: RandomUser.Person = {
+export const person: RandomUser.Result = {
   results: [
     {
       gender: 'female',

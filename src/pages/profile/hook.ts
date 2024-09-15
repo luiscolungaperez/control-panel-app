@@ -1,0 +1,16 @@
+import { useRequest } from '@/hooks';
+import { useQuery } from '@tanstack/react-query';
+
+export const useProfile = () => {
+  const { data: profileData, isLoading: loadingProfile } =
+    useQuery<RandomUser.Person>({
+      queryKey: ['profile'],
+      queryFn: async () => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const response = await useRequest<RandomUser.Result>();
+        return response.results[0];
+      },
+    });
+
+  return { profileData, loadingProfile };
+};
