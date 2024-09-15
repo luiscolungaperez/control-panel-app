@@ -1,5 +1,6 @@
 import { useProfile } from './hook';
 
+import { Card } from '@/components/common/card';
 import { UserInfo } from '@/components/common/userInfo';
 import { TCountryCode } from 'countries-list';
 import styles from './style.module.css';
@@ -21,6 +22,7 @@ const Profile = () => {
             nationality={profileData.nat as TCountryCode}
             name={`${profileData.name.first} ${profileData.name.last}`}
           />
+          <Card>Contenido</Card>
         </>
       )}
     </section>
