@@ -9,7 +9,7 @@ import styles from './style.module.css';
 
 export const UserUbication: React.FC<Props> = ({ location }) => {
   return (
-    <Card title='Ubicación'>
+    <Card title='Location'>
       <div className={styles.nationality}>
         <Flag country={location.country} />
         {location.country}

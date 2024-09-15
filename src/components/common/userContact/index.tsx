@@ -7,9 +7,9 @@ interface Props {
 
 export const UserContact: React.FC<Props> = ({ email, cell }) => {
   return (
-    <Card title='Contacto'>
+    <Card title='Contact'>
       <span>Email: {email}</span>
-      <span>Celular: {cell}</span>
+      <span>Cellphone: {cell}</span>
     </Card>
   );
 };
