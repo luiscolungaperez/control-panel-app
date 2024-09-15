@@ -1,3 +1,4 @@
+import { RandomUser } from '@/types/Person';
 import { Card } from '../card';
 import { Flag } from '../flag';
 

@@ -10,6 +10,24 @@ interface Props {
 }
 
 export const Navegation: React.FC<Props> = ({ isOpen, handleMenu }) => {
+  const options = [
+    {
+      to: '/profile',
+      text: 'Perfíl',
+      icon: <LuUserSquare size={32} />,
+    },
+    {
+      to: '/',
+      text: 'Usuarios',
+      icon: <LuUsers size={32} />,
+    },
+    {
+      to: '/messages',
+      text: 'Mensajes',
+      icon: <LuMessagesSquare size={32} />,
+    },
+  ];
+
   return (
     <aside
       className={clsx(
@@ -18,18 +36,16 @@ export const Navegation: React.FC<Props> = ({ isOpen, handleMenu }) => {
         !isOpen && styles.close,
       )}>
       <nav className={styles.list}>
-        <Link className={styles.option} onClick={handleMenu} to='/profile'>
-          <LuUserSquare size={32} />
-          Perfíl
-        </Link>
-        <Link className={styles.option} onClick={handleMenu} to='/users'>
-          <LuUsers size={32} />
-          Usuarios
-        </Link>
-        <Link className={styles.option} onClick={handleMenu} to='/messages'>
-          <LuMessagesSquare size={32} />
-          Mensajes
-        </Link>
+        {options.map((option) => (
+          <Link
+            key={option.to.slice(1)}
+            className={styles.option}
+            onClick={handleMenu}
+            to={option.to}>
+            {option.icon}
+            {option.text}
+          </Link>
+        ))}
       </nav>
     </aside>
   );

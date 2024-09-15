@@ -1,3 +1,5 @@
+import { TCountryCode } from 'countries-list';
+
 declare namespace RandomUser {
   interface Result {
     results: Person[];
@@ -23,7 +25,7 @@ declare namespace RandomUser {
     cell: string;
     id: ID;
     picture: Picture;
-    nat: string;
+    nat: TCountryCode;
   }
 
   interface Dob {
@@ -33,7 +35,7 @@ declare namespace RandomUser {
 
   interface ID {
     name: string;
-    value: string;
+    value: string | null;
   }
 
   interface Location {
@@ -41,7 +43,7 @@ declare namespace RandomUser {
     city: string;
     state: string;
     country: string;
-    postcode: string;
+    postcode: string | number;
     coordinates: Coordinates;
     timezone: Timezone;
   }
