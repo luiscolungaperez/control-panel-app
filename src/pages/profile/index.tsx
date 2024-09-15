@@ -1,12 +1,15 @@
 import { useProfile } from './hook';
 
-import { Card } from '@/components/common/card';
+import { UserContact } from '@/components/common/userContact';
 import { UserInfo } from '@/components/common/userInfo';
+import { UserUbication } from '@/components/common/userUbication';
 import { TCountryCode } from 'countries-list';
 import styles from './style.module.css';
 
 const Profile = () => {
   const { loadingProfile, profileData } = useProfile();
+
+  console.log(profileData);
 
   if (loadingProfile) {
     return <>Loading</>;
@@ -21,8 +24,10 @@ const Profile = () => {
             location={profileData.location}
             nationality={profileData.nat as TCountryCode}
             name={`${profileData.name.first} ${profileData.name.last}`}
+            gender={profileData.gender}
           />
-          <Card>Contenido</Card>
+          <UserContact cell={profileData.cell} email={profileData.email} />
+          <UserUbication location={profileData.location} />
         </>
       )}
     </section>

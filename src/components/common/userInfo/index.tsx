@@ -1,19 +1,21 @@
 import { getCountryData, TCountryCode } from 'countries-list';
 
+import styles from './style.module.css';
+
 interface Props {
   name: string;
   nationality: TCountryCode;
   avatar: string;
   location: RandomUser.Location;
+  gender: string;
 }
-
-import styles from './style.module.css';
 
 export const UserInfo: React.FC<Props> = ({
   avatar,
   location,
   name,
   nationality,
+  gender,
 }) => {
   return (
     <article className={styles['user-info']}>
@@ -29,10 +31,10 @@ export const UserInfo: React.FC<Props> = ({
       <span>
         {getCountryData(nationality).name} - {nationality}
       </span>
-
       <span>
         {location.city} - {location.state}
       </span>
+      <span style={{ textTransform: 'capitalize' }}>{gender}</span>
     </article>
   );
 };
