@@ -1,0 +1,36 @@
+.user-info {
+  margin-top: 5rem;
+  width: 100%;
+  padding: 2rem 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-element);
+  border-radius: 1rem;
+  & .avatar-wrapper {
+    margin-top: -6rem;
+    position: relative;
+    & .avatar {
+      border-radius: 100%;
+    }
+    & .flag {
+      width: 2.5rem;
+      height: 2.5rem;
+      object-fit: cover;
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      border-radius: 100%;
+    }
+  }
+
+  & .name {
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+  }
+
+  & span {
+    font-size: 0.85rem;
+  }
+}

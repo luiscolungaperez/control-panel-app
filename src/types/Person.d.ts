@@ -1,6 +1,6 @@
 declare namespace RandomUser {
-  interface Person {
-    results: Result[];
+  interface Result {
+    results: Person[];
     info: Info;
   }
 
@@ -11,7 +11,7 @@ declare namespace RandomUser {
     version: string;
   }
 
-  interface Result {
+  interface Person {
     gender: string;
     name: Name;
     location: Location;
