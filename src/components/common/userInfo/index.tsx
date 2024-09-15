@@ -1,5 +1,6 @@
 import { getCountryData, TCountryCode } from 'countries-list';
 
+import { RandomUser } from '@/types/Person';
 import styles from './style.module.css';
 
 interface Props {

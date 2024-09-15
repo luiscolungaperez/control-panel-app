@@ -1,3 +1,5 @@
+import { RandomUser } from '@/types/Person';
+
 export const person: RandomUser.Result = {
   results: [
     {

@@ -30,23 +30,15 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader() {
-          return redirect('/profile');
-        },
+        Component: Users,
       },
       {
         path: 'profile',
         Component: Profile,
       },
       {
-        path: 'users',
-        Component: Users,
-        children: [
-          {
-            path: ':id',
-            Component: User,
-          },
-        ],
+        path: ':id',
+        Component: User,
       },
       {
         path: 'messages',

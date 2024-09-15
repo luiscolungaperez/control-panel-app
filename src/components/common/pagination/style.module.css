@@ -1,0 +1,33 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 1rem 0;
+  & .button {
+    display: grid;
+    place-content: center;
+    border: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background-color: #24222256;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--bg-element);
+    }
+    &:disabled {
+      color: white;
+      cursor: default;
+      background-color: #24222256;
+    }
+  }
+
+  & .current-page {
+    color: white;
+    background-color: var(--bg-element) !important;
+    cursor: default;
+  }
+}

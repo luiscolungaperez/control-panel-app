@@ -9,8 +9,6 @@ import styles from './style.module.css';
 const Profile = () => {
   const { loadingProfile, profileData } = useProfile();
 
-  console.log(profileData);
-
   if (loadingProfile) {
     return <>Loading</>;
   }
