@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
 
 export const useUsers = () => {
+  const [gender, setGender] = useState<RandomUser.Gender>(undefined);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState({
@@ -22,11 +23,11 @@ export const useUsers = () => {
 
   const { data: usersData, isLoading: userLoading } =
     useQuery<RandomUser.Result>({
-      queryKey: ['users', filters.currentPage, filters.limit],
+      queryKey: ['users', filters.currentPage, filters.limit, gender],
       queryFn: async () => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         return await useRequest<RandomUser.Result>(
-          `?page=${filters.currentPage}&results=${filters.limit}&gender=female`,
+          `?page=${filters.currentPage}&results=${filters.limit}&gender=${gender}`,
         );
       },
       gcTime: 1000 * 60 * 60,
@@ -45,5 +46,13 @@ export const useUsers = () => {
     }
   }, [filters.currentPage]);
 
-  return { usersData, userLoading, updatePage, filters, sectionRef };
+  return {
+    usersData,
+    userLoading,
+    updatePage,
+    filters,
+    sectionRef,
+    gender,
+    setGender,
+  };
 };

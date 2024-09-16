@@ -88,4 +88,6 @@ declare namespace RandomUser {
   interface Error {
     error: string;
   }
+
+  type Gender = 'female' | 'male' | undefined;
 }

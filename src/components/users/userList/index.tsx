@@ -1,18 +1,14 @@
 import { UserInfo } from '@/components/common/userInfo';
 import { RandomUser } from '@/types/Person';
 import { TCountryCode } from 'countries-list';
-import { FilterUsers } from '../filterUsers';
 
 interface Props {
   users: RandomUser.Person[];
-  total: number;
 }
 
-export const UserList: React.FC<Props> = ({ users, total = 0 }) => {
+export const UserList: React.FC<Props> = ({ users }) => {
   return (
     <article>
-      <span>User total: {total}</span>
-      <FilterUsers />
       {users?.map((person) => (
         <UserInfo
           key={person.login.uuid}
