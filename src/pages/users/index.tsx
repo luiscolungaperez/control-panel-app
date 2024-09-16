@@ -1,19 +1,13 @@
 import { Pagination } from '@/components/common/pagination';
 import { FilterUsers } from '@/components/users/filterUsers';
 import { UserList } from '@/components/users/userList';
+import { UsersProvider } from '@/context/users/context';
 import { useUsers } from './hook';
 import styles from './style.module.css';
 
-const Users: React.FC = () => {
-  const {
-    usersData,
-    userLoading,
-    updatePage,
-    filters,
-    sectionRef,
-    gender,
-    setGender,
-  } = useUsers();
+const Wrapper = () => {
+  const { usersData, userLoading, updatePage, filters, sectionRef } =
+    useUsers();
 
   if (userLoading) {
     return <>loading</>;
@@ -23,7 +17,7 @@ const Users: React.FC = () => {
     <section ref={sectionRef} className={styles.users}>
       <span className={styles.title}>Users list</span>
       <span>User total: {filters.total}</span>
-      <FilterUsers gender={gender} setGender={setGender} />
+      <FilterUsers />
       {usersData && <UserList users={usersData?.results} />}
       <Pagination
         total={filters.total}
@@ -33,6 +27,14 @@ const Users: React.FC = () => {
         updatePage={updatePage}
       />
     </section>
+  );
+};
+
+const Users: React.FC = () => {
+  return (
+    <UsersProvider>
+      <Wrapper />
+    </UsersProvider>
   );
 };
 
