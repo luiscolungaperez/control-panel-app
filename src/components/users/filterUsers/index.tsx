@@ -1,12 +1,12 @@
 import { Dropdown } from '@/components/common/dropdown';
+import { UsersContext } from '@/context/users/context';
 import { RandomUser } from '@/types/Person';
+import { useContext } from 'react';
 
-interface Props {
-  gender: RandomUser.Gender;
-  setGender: React.Dispatch<React.SetStateAction<RandomUser.Gender>>;
-}
+export const FilterUsers: React.FC = () => {
+  const context = useContext(UsersContext);
+  const { filters, setFilters } = context!;
 
-export const FilterUsers: React.FC<Props> = ({ gender, setGender }) => {
   const options: Dropdown.Option[] = [
     {
       label: 'Female',
@@ -18,8 +18,11 @@ export const FilterUsers: React.FC<Props> = ({ gender, setGender }) => {
     },
   ];
 
-  const updateValue = (value?: string | number) => {
-    setGender(value as RandomUser.Gender);
+  const updateValue = (gender?: string | number) => {
+    setFilters({
+      ...filters,
+      gender: gender as RandomUser.Gender,
+    });
   };
 
   return (
@@ -27,7 +30,7 @@ export const FilterUsers: React.FC<Props> = ({ gender, setGender }) => {
       <Dropdown
         options={options}
         label='Filter by gender'
-        value={gender}
+        value={filters.gender}
         onClick={updateValue}
       />
     </article>

@@ -1,4 +1,5 @@
 import { useRequest } from '@/hooks';
+import { RandomUser } from '@/types/Person';
 import { useQuery } from '@tanstack/react-query';
 
 export const useProfile = () => {
