@@ -1,11 +1,19 @@
 import { Pagination } from '@/components/common/pagination';
+import { FilterUsers } from '@/components/users/filterUsers';
 import { UserList } from '@/components/users/userList';
 import { useUsers } from './hook';
 import styles from './style.module.css';
 
 const Users: React.FC = () => {
-  const { userLoading, usersData, filters, updatePage, sectionRef } =
-    useUsers();
+  const {
+    usersData,
+    userLoading,
+    updatePage,
+    filters,
+    sectionRef,
+    gender,
+    setGender,
+  } = useUsers();
 
   if (userLoading) {
     return <>loading</>;
@@ -14,9 +22,9 @@ const Users: React.FC = () => {
   return (
     <section ref={sectionRef} className={styles.users}>
       <span className={styles.title}>Users list</span>
-      {usersData && (
-        <UserList users={usersData?.results} total={filters.total} />
-      )}
+      <span>User total: {filters.total}</span>
+      <FilterUsers gender={gender} setGender={setGender} />
+      {usersData && <UserList users={usersData?.results} />}
       <Pagination
         total={filters.total}
         currentPage={filters.currentPage}
