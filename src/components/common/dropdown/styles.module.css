@@ -1,26 +1,52 @@
 /* Estilo general del dropdown */
 .dropdown {
+  width: max-content;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
+  min-width: 160px;
+
   & label {
     font-size: 0.85rem;
   }
+
   & .dropdown-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Esto asegura que la flecha se alinee a la derecha */
+    gap: 1rem;
     background-color: #3a3a3a;
     color: white;
-    font-size: 1rem;
-    border: none;
+    font-size: 0.95rem;
+    border: 0;
     cursor: pointer;
     border-radius: 5px;
     transition: all ease-in-out 0.3s;
-    padding: 8px 16px;
+    padding: 8px;
+
     &:hover {
       background-color: #5f5c5c;
     }
+
+    &::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtMTkgOS03IDctNy03Ii8+PC9zdmc+');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &[aria-expanded='true']::after {
+      transform: rotate(180deg);
+    }
   }
+
   & .dropdown-content {
     position: absolute;
     display: flex;
@@ -52,8 +78,7 @@
       }
     }
   }
-}
-
-.show {
-  display: flex;
+  & .show {
+    display: flex;
+  }
 }

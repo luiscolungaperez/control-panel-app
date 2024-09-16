@@ -18,7 +18,7 @@ export const FilterUsers: React.FC<Props> = ({ gender, setGender }) => {
     },
   ];
 
-  const updateValue = (value: string | number) => {
+  const updateValue = (value?: string | number) => {
     setGender(value as RandomUser.Gender);
   };
 
@@ -26,7 +26,7 @@ export const FilterUsers: React.FC<Props> = ({ gender, setGender }) => {
     <article>
       <Dropdown
         options={options}
-        placeholder='Filter by gender'
+        label='Filter by gender'
         value={gender}
         onClick={updateValue}
       />
