@@ -1,8 +1,8 @@
 import { useProfile } from './hook';
 
-import { UserContact } from '@/components/common/userContact';
 import { UserInfo } from '@/components/common/userInfo';
-import { UserUbication } from '@/components/common/userUbication';
+import { UserContact } from '@/components/profile/userContact';
+import { UserUbication } from '@/components/profile/userUbication';
 import { TCountryCode } from 'countries-list';
 import styles from './style.module.css';
 

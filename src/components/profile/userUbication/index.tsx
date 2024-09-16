@@ -1,11 +1,11 @@
 import { RandomUser } from '@/types/Person';
-import { Card } from '../card';
-import { Flag } from '../flag';
 
 interface Props {
   location: RandomUser.Location;
 }
 
+import { Card } from '@/components/common/card';
+import { Flag } from '@/components/common/flag';
 import styles from './style.module.css';
 
 export const UserUbication: React.FC<Props> = ({ location }) => {
