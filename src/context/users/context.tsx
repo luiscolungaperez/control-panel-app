@@ -8,6 +8,7 @@ interface Filters {
   limit: number;
   gender: RandomUser.Gender;
   nat?: TCountryCode;
+  ages?: string;
 }
 
 interface UsersContextType {
@@ -24,6 +25,7 @@ const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     limit: 10,
     gender: undefined,
     nat: undefined,
+    ages: undefined,
   });
 
   return (

@@ -11,6 +11,7 @@ interface Props {
   location: RandomUser.Location;
   gender: string;
   redirect?: boolean;
+  age: number;
 }
 
 export const UserInfo: React.FC<Props> = ({
@@ -19,6 +20,7 @@ export const UserInfo: React.FC<Props> = ({
   name,
   nationality,
   gender,
+  age,
   redirect = false,
 }) => {
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ export const UserInfo: React.FC<Props> = ({
         />
       </div>
       <span className={styles.name}>{name}</span>
+      <span>Age: {age}</span>
       <span>
         {getCountryData(nationality).name} - {nationality}
       </span>

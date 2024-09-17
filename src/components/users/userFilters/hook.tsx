@@ -128,6 +128,53 @@ export const useUserFilters = () => {
     },
   ];
 
+  const agesOptions: DropdownSpace.Option[] = [
+    {
+      label: '0 - 10 years',
+      value: '1-10',
+    },
+    {
+      label: '11 - 20 years',
+      value: '11-20',
+    },
+    {
+      label: '21 - 30 years',
+      value: '21-30',
+    },
+    {
+      label: '31 - 40 years',
+      value: '31-40',
+    },
+    {
+      label: '41 - 50 years',
+      value: '41-50',
+    },
+    {
+      label: '51 - 60 years',
+      value: '51-60',
+    },
+    {
+      label: '61 - 70 years',
+      value: '61-70',
+    },
+    {
+      label: '71 - 80 years',
+      value: '71-80',
+    },
+    {
+      label: '81 - 90 years',
+      value: '81-90',
+    },
+    {
+      label: '91 - 100 years',
+      value: '91-100',
+    },
+    {
+      label: '101 - 110 years',
+      value: '101-110',
+    },
+  ];
+
   const updateGenderFilter = (gender?: string) => {
     setFilters({
       ...filters,
@@ -142,11 +189,20 @@ export const useUserFilters = () => {
     });
   };
 
+  const updateAgesFilter = (ages?: string) => {
+    setFilters({
+      ...filters,
+      ages,
+    });
+  };
+
   return {
     filters,
     genders,
-    updateGenderFilter,
     nationalities,
+    agesOptions,
+    updateGenderFilter,
     updateNatFilter,
+    updateAgesFilter,
   };
 };
