@@ -28,7 +28,7 @@ export const Form: React.FC<Props> = ({
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <FormInput
         name='email'
-        label='Correo electronico:'
+        label='Email:'
         type='email'
         control={control}
         register={register}
@@ -36,7 +36,7 @@ export const Form: React.FC<Props> = ({
       />
       <FormInput
         name='password'
-        label='Contraseña:'
+        label='Password:'
         type='password'
         control={control}
         register={register}
