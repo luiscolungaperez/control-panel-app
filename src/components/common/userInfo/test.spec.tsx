@@ -1,6 +1,7 @@
 import { person } from '@/utils/constants/person';
 import { cleanup, render, screen } from '@testing-library/react';
 import { TCountryCode } from 'countries-list';
+import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it } from 'vitest';
 import { UserInfo } from '.';
 
@@ -13,12 +14,17 @@ describe('User info component', () => {
 
   it('Should show a user image', () => {
     render(
-      <UserInfo
-        avatar={results[0].picture.large}
-        location={results[0].location}
-        name={`${results[0].name.first} ${results[0].name.last}`}
-        nationality={results[0].nat as TCountryCode}
-      />,
+      <MemoryRouter>
+        <UserInfo
+          avatar={results[0].picture.large}
+          location={results[0].location}
+          name={`${results[0].name.first} ${results[0].name.last}`}
+          nationality={results[0].nat as TCountryCode}
+          gender={results[0].gender}
+          redirect={false}
+        />
+        ,
+      </MemoryRouter>,
     );
 
     expect(screen.getByAltText(/Jennie Nichols/)).toBeInTheDocument();
@@ -26,12 +32,16 @@ describe('User info component', () => {
 
   it('Should show a flag image', () => {
     render(
-      <UserInfo
-        avatar={results[0].picture.large}
-        location={results[0].location}
-        name={`${results[0].name.first} ${results[0].name.last}`}
-        nationality={results[0].nat as TCountryCode}
-      />,
+      <MemoryRouter>
+        <UserInfo
+          avatar={results[0].picture.large}
+          location={results[0].location}
+          name={`${results[0].name.first} ${results[0].name.last}`}
+          nationality={results[0].nat as TCountryCode}
+          gender={results[0].gender}
+          redirect={false}
+        />
+      </MemoryRouter>,
     );
 
     expect(screen.getByAltText(/United States/)).toBeInTheDocument();
@@ -39,12 +49,16 @@ describe('User info component', () => {
 
   it('Should show a correct user name', () => {
     render(
-      <UserInfo
-        avatar={results[0].picture.large}
-        location={results[0].location}
-        name={`${results[0].name.first} ${results[0].name.last}`}
-        nationality={results[0].nat as TCountryCode}
-      />,
+      <MemoryRouter>
+        <UserInfo
+          avatar={results[0].picture.large}
+          location={results[0].location}
+          name={`${results[0].name.first} ${results[0].name.last}`}
+          nationality={results[0].nat as TCountryCode}
+          gender={results[0].gender}
+          redirect={false}
+        />
+      </MemoryRouter>,
     );
 
     expect(screen.getByText(/Jennie Nichols/)).toBeInTheDocument();
