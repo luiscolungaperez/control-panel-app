@@ -31,6 +31,7 @@ export const UserInfo: React.FC<Props> = ({
 
   return (
     <article
+      tabIndex={0}
       style={redirect ? { cursor: 'pointer' } : {}}
       className={styles['user-info']}
       role={redirect ? 'button' : undefined}
