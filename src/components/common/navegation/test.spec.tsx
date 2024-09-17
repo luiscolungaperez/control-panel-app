@@ -12,7 +12,7 @@ describe('Navigation Aside', () => {
   it('Should show 3 options in the menu when is open', () => {
     render(
       <MemoryRouter>
-        <Navegation isOpen={true} />
+        <Navegation isOpen={true} handleMenu={() => {}} />
       </MemoryRouter>,
     );
 
@@ -26,7 +26,7 @@ describe('Navigation Aside', () => {
   it('Should not show options in the menu when is close', () => {
     render(
       <MemoryRouter>
-        <Navegation isOpen={false} />
+        <Navegation isOpen={false} handleMenu={() => {}} />
       </MemoryRouter>,
     );
 

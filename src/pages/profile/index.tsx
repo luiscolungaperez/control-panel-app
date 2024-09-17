@@ -25,6 +25,7 @@ const Profile = () => {
               nationality={profileData.nat as TCountryCode}
               name={`${profileData.name.first} ${profileData.name.last}`}
               gender={profileData.gender}
+              age={profileData.dob.age}
             />
             <UserContact cell={profileData.cell} email={profileData.email} />
             <UserUbication location={profileData.location} />
