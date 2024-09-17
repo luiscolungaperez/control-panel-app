@@ -1,5 +1,6 @@
 import { FormInput } from '@/components/common/formInput';
 
+import { Button } from '@/components/common/button';
 import React from 'react';
 import {
   Control,
@@ -41,7 +42,7 @@ export const Form: React.FC<Props> = ({
         register={register}
         required
       />
-      <button type='submit'>Iniciar sesión</button>
+      <Button type='submit' text='LogIn' />
     </form>
   );
 };
