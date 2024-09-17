@@ -1,5 +1,5 @@
 import { Pagination } from '@/components/common/pagination';
-import { FilterUsers } from '@/components/users/filterUsers';
+import { UserFilters } from '@/components/users/userFilters';
 import { UserList } from '@/components/users/userList';
 import { useUsers } from './hook';
 import styles from './style.module.css';
@@ -16,7 +16,7 @@ const Users: React.FC = () => {
     <section ref={sectionRef} className={styles.users}>
       <span className={styles.title}>Users list</span>
       <span>User total: {filters.total}</span>
-      <FilterUsers />
+      <UserFilters />
       {usersData && <UserList users={usersData?.results} />}
       <Pagination
         total={filters.total}

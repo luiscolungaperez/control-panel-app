@@ -19,11 +19,17 @@ export const useUsers = () => {
 
   const { data: usersData, isLoading: userLoading } =
     useQuery<RandomUser.Result>({
-      queryKey: ['users', filters.currentPage, filters.limit, filters.gender],
+      queryKey: [
+        'users',
+        filters.currentPage,
+        filters.limit,
+        filters.gender,
+        filters.nat,
+      ],
       queryFn: async () => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         return await useRequest<RandomUser.Result>(
-          `?page=${filters.currentPage}&results=${filters.limit}&gender=${filters.gender}`,
+          `?page=${filters.currentPage}&results=${filters.limit}&gender=${filters.gender}&nat=${filters.nat}`,
         );
       },
       gcTime: 1000 * 60 * 60,

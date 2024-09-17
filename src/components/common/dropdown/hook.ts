@@ -1,7 +1,7 @@
 import { useClickOutside } from '@/hooks';
 import { useEffect, useRef, useState } from 'react';
 
-export const useDropdown = (onClick: (value?: string | number) => void) => {
+export const useDropdown = (onClick: (value?: string) => void) => {
   const wrapperRef = useRef(null);
   const { isClickedOutside } = useClickOutside(wrapperRef);
 
@@ -9,7 +9,7 @@ export const useDropdown = (onClick: (value?: string | number) => void) => {
 
   const handleIsOpen = () => setIsOpen((value) => !value);
 
-  const handleClick = (value?: string | number) => {
+  const handleClick = (value?: string) => {
     if (value) {
       onClick(value);
     } else {

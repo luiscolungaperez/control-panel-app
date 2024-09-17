@@ -1,3 +1,4 @@
+import { DropdownSpace } from '@/types/Dropdown';
 import clsx from 'clsx';
 import { useDropdown } from './hook';
 import styles from './styles.module.css';
@@ -5,8 +6,8 @@ import styles from './styles.module.css';
 interface Props {
   label?: string;
   value?: string | number;
-  options: Dropdown.Option[];
-  onClick: (value?: string | number) => void;
+  options: DropdownSpace.Option[];
+  onClick: (value?: string) => void;
 }
 
 export const Dropdown: React.FC<Props> = ({
@@ -30,7 +31,8 @@ export const Dropdown: React.FC<Props> = ({
           className={styles['dropdown-btn']}
           onClick={handleIsOpen}
           aria-expanded={isOpen}>
-          {options.find((options) => options.value === value)?.label ||
+          {options.find((option) => option.value === value)?.icon}
+          {options.find((option) => option.value === value)?.label ||
             'Select a option'}
         </button>
         {isOpen && (
@@ -47,8 +49,9 @@ export const Dropdown: React.FC<Props> = ({
               <button
                 type='button'
                 className={styles.button}
-                onClick={() => handleClick(option.value)}
+                onClick={() => handleClick(option.value as string)}
                 key={`${option.value}-${index}`}>
+                {option.icon && option.icon}
                 {option.label}
               </button>
             ))}
