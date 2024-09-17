@@ -45,6 +45,6 @@ describe('Input Component', () => {
     renderWithForm();
 
     fireEvent.submit(screen.getByText('Submit'));
-    expect(await screen.findByText(/Email es requerido./i)).toBeInTheDocument();
+    expect(await screen.findByText(/Email is required./i)).toBeInTheDocument();
   });
 });

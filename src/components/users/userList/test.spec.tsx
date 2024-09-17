@@ -1,3 +1,4 @@
+import { UsersProvider } from '@/context/users/context';
 import { people } from '@/utils/constants/people';
 import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -11,9 +12,12 @@ describe('Card component', () => {
 
   it('Should render a list of users', async () => {
     render(
-      <MemoryRouter>
-        <UserList users={people.results} />
-      </MemoryRouter>,
+      <UsersProvider>
+        <MemoryRouter>
+          <UserList users={people.results} />
+        </MemoryRouter>
+        ,
+      </UsersProvider>,
     );
 
     expect(await screen.findByText(/Bogdan Gucalo/)).toBeInTheDocument();

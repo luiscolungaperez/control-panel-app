@@ -1,3 +1,4 @@
+import { UsersProvider } from '@/context/users/context';
 import { person } from '@/utils/constants/person';
 import { cleanup, render, screen } from '@testing-library/react';
 import { TCountryCode } from 'countries-list';
@@ -14,18 +15,20 @@ describe('User info component', () => {
 
   it('Should show a user image', () => {
     render(
-      <MemoryRouter>
-        <UserInfo
-          avatar={results[0].picture.large}
-          location={results[0].location}
-          name={`${results[0].name.first} ${results[0].name.last}`}
-          nationality={results[0].nat as TCountryCode}
-          gender={results[0].gender}
-          age={results[0].dob.age}
-          redirect={false}
-        />
-        ,
-      </MemoryRouter>,
+      <UsersProvider>
+        <MemoryRouter>
+          <UserInfo
+            avatar={results[0].picture.large}
+            location={results[0].location}
+            name={`${results[0].name.first} ${results[0].name.last}`}
+            nationality={results[0].nat as TCountryCode}
+            gender={results[0].gender}
+            age={results[0].dob.age}
+            redirect={false}
+          />
+          ,
+        </MemoryRouter>
+      </UsersProvider>,
     );
 
     expect(screen.getByAltText(/Jennie Nichols/)).toBeInTheDocument();
@@ -33,17 +36,19 @@ describe('User info component', () => {
 
   it('Should show a flag image', () => {
     render(
-      <MemoryRouter>
-        <UserInfo
-          avatar={results[0].picture.large}
-          location={results[0].location}
-          name={`${results[0].name.first} ${results[0].name.last}`}
-          nationality={results[0].nat as TCountryCode}
-          gender={results[0].gender}
-          redirect={false}
-          age={results[0].dob.age}
-        />
-      </MemoryRouter>,
+      <UsersProvider>
+        <MemoryRouter>
+          <UserInfo
+            avatar={results[0].picture.large}
+            location={results[0].location}
+            name={`${results[0].name.first} ${results[0].name.last}`}
+            nationality={results[0].nat as TCountryCode}
+            gender={results[0].gender}
+            redirect={false}
+            age={results[0].dob.age}
+          />
+        </MemoryRouter>
+      </UsersProvider>,
     );
 
     expect(screen.getByAltText(/United States/)).toBeInTheDocument();
@@ -51,17 +56,19 @@ describe('User info component', () => {
 
   it('Should show a correct user name', () => {
     render(
-      <MemoryRouter>
-        <UserInfo
-          avatar={results[0].picture.large}
-          location={results[0].location}
-          name={`${results[0].name.first} ${results[0].name.last}`}
-          nationality={results[0].nat as TCountryCode}
-          gender={results[0].gender}
-          redirect={false}
-          age={results[0].dob.age}
-        />
-      </MemoryRouter>,
+      <UsersProvider>
+        <MemoryRouter>
+          <UserInfo
+            avatar={results[0].picture.large}
+            location={results[0].location}
+            name={`${results[0].name.first} ${results[0].name.last}`}
+            nationality={results[0].nat as TCountryCode}
+            gender={results[0].gender}
+            redirect={false}
+            age={results[0].dob.age}
+          />
+        </MemoryRouter>
+      </UsersProvider>,
     );
 
     expect(screen.getByText(/Jennie Nichols/)).toBeInTheDocument();
