@@ -1,4 +1,5 @@
 import { RandomUser } from '@/types/Person';
+import { TCountryCode } from 'countries-list';
 import { createContext, useState } from 'react';
 
 interface Filters {
@@ -6,6 +7,7 @@ interface Filters {
   currentPage: number;
   limit: number;
   gender: RandomUser.Gender;
+  nat?: TCountryCode;
 }
 
 interface UsersContextType {
@@ -21,6 +23,7 @@ const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     currentPage: 1,
     limit: 10,
     gender: undefined,
+    nat: undefined,
   });
 
   return (
