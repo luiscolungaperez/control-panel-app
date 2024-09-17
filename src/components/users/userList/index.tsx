@@ -17,6 +17,7 @@ export const UserList: React.FC<Props> = ({ users }) => {
           location={person.location}
           name={`${person.name.first} ${person.name.last}`}
           nationality={person.nat as TCountryCode}
+          redirect
         />
       ))}
     </article>

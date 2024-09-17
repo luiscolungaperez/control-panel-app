@@ -1,11 +1,10 @@
 import { Pagination } from '@/components/common/pagination';
 import { FilterUsers } from '@/components/users/filterUsers';
 import { UserList } from '@/components/users/userList';
-import { UsersProvider } from '@/context/users/context';
 import { useUsers } from './hook';
 import styles from './style.module.css';
 
-const Wrapper = () => {
+const Users: React.FC = () => {
   const { usersData, userLoading, updatePage, filters, sectionRef } =
     useUsers();
 
@@ -27,14 +26,6 @@ const Wrapper = () => {
         updatePage={updatePage}
       />
     </section>
-  );
-};
-
-const Users: React.FC = () => {
-  return (
-    <UsersProvider>
-      <Wrapper />
-    </UsersProvider>
   );
 };
 
