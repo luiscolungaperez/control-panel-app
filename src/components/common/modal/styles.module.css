@@ -10,7 +10,7 @@
   align-items: center;
   z-index: 1000;
   & .modal-container {
-    background-color: #3a3a3a;
+    background-color: #2e2d2d;
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;

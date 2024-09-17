@@ -4,6 +4,8 @@ interface UsersContextType {
   filters: Filters.Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters.Filters>>;
   handleIsOpenModal: () => void;
+  messages: Message.Message[];
+  setMessages: React.Dispatch<React.SetStateAction<Message.Message[]>>;
 }
 
 const UsersContext = createContext<UsersContextType | undefined>(undefined);
@@ -23,6 +25,8 @@ const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
+  const [messages, setMessages] = useState<Message.Message[]>([]);
+
   const handleIsOpenModal = () => {
     setFilters((prevData) => ({
       ...prevData,
@@ -31,7 +35,8 @@ const UsersProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <UsersContext.Provider value={{ filters, setFilters, handleIsOpenModal }}>
+    <UsersContext.Provider
+      value={{ filters, setFilters, handleIsOpenModal, messages, setMessages }}>
       {children}
     </UsersContext.Provider>
   );

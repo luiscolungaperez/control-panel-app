@@ -3,7 +3,7 @@ import { Button } from '@/components/common/button';
 import { UsersContext } from '@/context/users/context';
 import { RandomUser } from '@/types/Person';
 import { useQueryClient } from '@tanstack/react-query';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from './styles.module.css';
 
 export const DeleteConfirm: React.FC = () => {
@@ -11,7 +11,13 @@ export const DeleteConfirm: React.FC = () => {
   const context = useContext(UsersContext);
   const { filters, setFilters, handleIsOpenModal } = context!;
 
-  const deleteUser = () => {
+  const closeModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    handleIsOpenModal();
+  };
+
+  const deleteUser = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const namesArray = filters.actionName.name.split(' ');
 
     const newList = (
@@ -61,7 +67,7 @@ export const DeleteConfirm: React.FC = () => {
         and will permanently remove the user's information from the system.
       </p>
       <div className={styles.actions}>
-        <Button text='Cancel' onClick={handleIsOpenModal} />
+        <Button text='Cancel' onClick={closeModal} />
         <Button text='Accept' onClick={deleteUser} />
       </div>
     </article>

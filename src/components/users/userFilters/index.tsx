@@ -36,7 +36,7 @@ export const UserFilters: React.FC = () => {
         value={filters.ages}
         onClick={updateAgesFilter}
       />
-      <Button text='Descargar CSV' onClick={() => download()} />
+      <Button text='Download CSV' onClick={() => download()} />
     </article>
   );
 };
