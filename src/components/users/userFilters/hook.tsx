@@ -214,7 +214,7 @@ export const useUserFilters = () => {
           const url = window.URL.createObjectURL(data);
           const a = document.createElement('a');
           a.href = url;
-          a.download = 'randomuser.csv';
+          a.download = 'users.csv';
           document.body.appendChild(a);
           a.click();
           a.remove();

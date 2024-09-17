@@ -1,5 +1,6 @@
 .navigation {
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   grid-area: aside;
   width: 100%;

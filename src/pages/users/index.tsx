@@ -8,33 +8,25 @@ import { useUsers } from './hook';
 import styles from './style.module.css';
 
 const Users: React.FC = () => {
-  const {
-    usersData,
-    userLoading,
-    updatePage,
-    filters,
-    sectionRef,
-    handleIsOpenModal,
-  } = useUsers();
-
-  if (userLoading) {
-    return <>loading</>;
-  }
+  const { usersData, updatePage, filters, sectionRef, handleIsOpenModal } =
+    useUsers();
 
   return (
     <>
       <section ref={sectionRef} className={styles.users}>
         <span className={styles.title}>Users list</span>
-        <span>User total: {filters.total}</span>
+        <span className={styles.total}>User total: {filters.total}</span>
         <UserFilters />
         {usersData && <UserList users={usersData?.results} />}
-        <Pagination
-          total={filters.total}
-          currentPage={filters.currentPage}
-          limit={filters.limit}
-          maxVisiblePages={6}
-          updatePage={updatePage}
-        />
+        {usersData?.results?.length ? (
+          <Pagination
+            total={filters.total}
+            currentPage={filters.currentPage}
+            limit={filters.limit}
+            maxVisiblePages={6}
+            updatePage={updatePage}
+          />
+        ) : null}
       </section>
       <Modal isOpen={filters.modalIsOpen} onClose={handleIsOpenModal}>
         {filters.actionName.type === 'message' ? (
