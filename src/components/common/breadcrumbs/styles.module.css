@@ -1,0 +1,31 @@
+.breadcrumbs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  & .breadcrumb-item {
+    & + ::before {
+      content: '';
+      margin-top: 10px;
+      width: 16px;
+      height: 16px;
+      padding: 0 0.65rem;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBhcmlhLWhpZGRlbj0idHJ1ZSIgc3R5bGU9IndpZHRoOiAyNHB4OyBoZWlnaHQ6IDI0cHg7IGNvbG9yOiAjZmZmOyI+PHBhdGggc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJtOSA1IDcgNy03IDciLz48L3N2Zz4=');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    & a {
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+      color: white;
+      font-weight: 800;
+      border-bottom: 1px solid inherit;
+
+      &:hover {
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+}

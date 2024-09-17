@@ -1,6 +1,7 @@
 import { getCountryData, TCountryCode } from 'countries-list';
 
 import { RandomUser } from '@/types/Person';
+import { useNavigate } from 'react-router-dom';
 import styles from './style.module.css';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   avatar: string;
   location: RandomUser.Location;
   gender: string;
+  redirect?: boolean;
 }
 
 export const UserInfo: React.FC<Props> = ({
@@ -17,9 +19,20 @@ export const UserInfo: React.FC<Props> = ({
   name,
   nationality,
   gender,
+  redirect = false,
 }) => {
+  const navigate = useNavigate();
+
+  const redirectUser = (name: string) => {
+    navigate(`/user/${name}`);
+  };
+
   return (
-    <article className={styles['user-info']}>
+    <article
+      style={redirect ? { cursor: 'pointer' } : {}}
+      className={styles['user-info']}
+      role={redirect ? 'button' : undefined}
+      onClick={() => (redirect ? redirectUser(name) : undefined)}>
       <div className={styles['avatar-wrapper']}>
         <img className={styles.avatar} src={avatar} alt={name} />
         <img
