@@ -1,25 +1,14 @@
-import { RandomUser } from '@/types/Person';
-import { TCountryCode } from 'countries-list';
 import { createContext, useState } from 'react';
 
-interface Filters {
-  total: number;
-  currentPage: number;
-  limit: number;
-  gender: RandomUser.Gender;
-  nat?: TCountryCode;
-  ages?: string;
-}
-
 interface UsersContextType {
-  filters: Filters;
-  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+  filters: Filters.Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters.Filters>>;
 }
 
 const UsersContext = createContext<UsersContextType | undefined>(undefined);
 
 const UsersProvider = ({ children }: { children: React.ReactNode }) => {
-  const [filters, setFilters] = useState<Filters>({
+  const [filters, setFilters] = useState<Filters.Filters>({
     total: 100,
     currentPage: 1,
     limit: 10,

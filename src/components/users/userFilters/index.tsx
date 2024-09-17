@@ -1,5 +1,8 @@
+import { Button } from '@/components/common/button';
 import { Dropdown } from '@/components/common/dropdown';
 import { useUserFilters } from './hook';
+
+import styles from './styles.module.css';
 
 export const UserFilters: React.FC = () => {
   const {
@@ -10,10 +13,11 @@ export const UserFilters: React.FC = () => {
     updateNatFilter,
     agesOptions,
     updateAgesFilter,
+    download,
   } = useUserFilters();
 
   return (
-    <article>
+    <article className={styles.filters}>
       <Dropdown
         options={nationalities}
         label='Filter by natonality'
@@ -32,6 +36,7 @@ export const UserFilters: React.FC = () => {
         value={filters.ages}
         onClick={updateAgesFilter}
       />
+      <Button text='Descargar CSV' onClick={() => download()} />
     </article>
   );
 };

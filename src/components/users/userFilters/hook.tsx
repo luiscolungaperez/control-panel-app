@@ -2,6 +2,7 @@ import { Flag } from '@/components/common/flag';
 import { UsersContext } from '@/context/users/context';
 import { DropdownSpace } from '@/types/Dropdown';
 import { RandomUser } from '@/types/Person';
+import { useMutation } from '@tanstack/react-query';
 import { TCountryCode } from 'countries-list';
 import { useContext } from 'react';
 
@@ -196,6 +197,36 @@ export const useUserFilters = () => {
     });
   };
 
+  const { mutate } = useMutation({
+    mutationFn: async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_APP_API}?format=csv`,
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.blob();
+
+        if (data) {
+          const url = window.URL.createObjectURL(data);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'randomuser.csv';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+
+          window.URL.revokeObjectURL(url);
+        }
+      } catch (error) {
+        console.error('Error al descargar el archivo:', error);
+      }
+    },
+  });
+
   return {
     filters,
     genders,
@@ -204,5 +235,6 @@ export const useUserFilters = () => {
     updateGenderFilter,
     updateNatFilter,
     updateAgesFilter,
+    download: mutate,
   };
 };
