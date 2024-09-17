@@ -6,5 +6,10 @@ declare namespace Filters {
     gender: RandomUser.Gender;
     nat?: TCountryCode;
     ages?: string;
+    modalIsOpen: boolean;
+    actionName: {
+      type: string;
+      name: string;
+    };
   }
 }

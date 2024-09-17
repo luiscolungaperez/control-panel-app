@@ -38,4 +38,37 @@
   & span {
     font-size: 0.85rem;
   }
+
+  & .actions {
+    width: 100%;
+    margin: 1rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.3s ease-in-out;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    & button {
+      transition: all 0.3s ease-in-out;
+      &:nth-child(1) {
+        background-color: rgba(202, 71, 71, 0.75);
+        &:hover {
+          background-color: rgb(202, 71, 71);
+        }
+      }
+      &:nth-child(2) {
+        background-color: rgba(13, 100, 201, 0.75);
+        &:hover {
+          background-color: rgb(13, 100, 201);
+        }
+      }
+    }
+  }
+
+  &:hover .actions {
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
 }

@@ -7,7 +7,7 @@ import { useContext, useEffect, useRef } from 'react';
 
 export const useUsers = () => {
   const context = useContext(UsersContext);
-  const { filters, setFilters } = context!;
+  const { filters, setFilters, handleIsOpenModal } = context!;
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const updatePage = (page: number) => {
@@ -74,5 +74,6 @@ export const useUsers = () => {
     updatePage,
     filters,
     sectionRef,
+    handleIsOpenModal,
   };
 };

@@ -1,0 +1,32 @@
+.delete-confirm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  & .title {
+    font-size: 1.15rem;
+    font-size: 600;
+  }
+  & .description {
+    font-size: 0.85rem;
+  }
+  & .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    & button {
+      transition: all 0.3s ease-in-out;
+      &:nth-child(1) {
+        background-color: rgba(202, 71, 71, 0.75);
+        &:hover {
+          background-color: rgb(202, 71, 71);
+        }
+      }
+      &:nth-child(2) {
+        background-color: rgba(13, 100, 201, 0.75);
+        &:hover {
+          background-color: rgb(13, 100, 201);
+        }
+      }
+    }
+  }
+}
