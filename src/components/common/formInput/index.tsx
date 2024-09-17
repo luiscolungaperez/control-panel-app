@@ -28,12 +28,12 @@ export const FormInput: React.FC<Form.FormInputProps> = ({
       </label>
 
       <input
-        className={clsx(styles.input)}
+        className={clsx(styles.input, error?.message && styles['error-input'])}
         id={name}
         type={type}
         {...register(name, { required })}
       />
-      {error && <span>{error.message}</span>}
+      {error && <span className={styles.error}>{error.message}</span>}
     </div>
   );
 };
