@@ -1,7 +1,10 @@
 import { getCountryData, TCountryCode } from 'countries-list';
 
+import { UsersContext } from '@/context/users/context';
 import { RandomUser } from '@/types/Person';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../button';
 import styles from './style.module.css';
 
 interface Props {
@@ -23,10 +26,33 @@ export const UserInfo: React.FC<Props> = ({
   age,
   redirect = false,
 }) => {
+  const context = useContext(UsersContext);
+  const { handleIsOpenModal, setFilters } = context!;
   const navigate = useNavigate();
 
   const redirectUser = (name: string) => {
     navigate(`/user/${name}`);
+  };
+
+  const sendMessage = (e: React.MouseEvent, name: string) => {
+    e.stopPropagation();
+    setFilters((prevData) => ({
+      ...prevData,
+      actionName: {
+        type: 'message',
+        name,
+      },
+    }));
+    handleIsOpenModal();
+  };
+
+  const deleteUserConfirm = (e: React.MouseEvent, name: string) => {
+    e.stopPropagation();
+    setFilters((prevData) => ({
+      ...prevData,
+      actionName: { type: 'delete', name },
+    }));
+    handleIsOpenModal();
   };
 
   return (
@@ -53,6 +79,14 @@ export const UserInfo: React.FC<Props> = ({
         {location.city} - {location.state}
       </span>
       <span style={{ textTransform: 'capitalize' }}>{gender}</span>
+
+      <div className={styles.actions}>
+        <Button
+          text='Remove user'
+          onClick={(e) => deleteUserConfirm(e, name)}
+        />
+        <Button text='Send message' onClick={(e) => sendMessage(e, name)} />
+      </div>
     </article>
   );
 };
