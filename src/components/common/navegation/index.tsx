@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { LuMessagesSquare, LuUsers, LuUserSquare } from 'react-icons/lu';
+import { LuUsers, LuUserSquare } from 'react-icons/lu';
 import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
@@ -13,18 +13,13 @@ export const Navegation: React.FC<Props> = ({ isOpen, handleMenu }) => {
   const options = [
     {
       to: '/profile',
-      text: 'Perfíl',
+      text: 'Profile',
       icon: <LuUserSquare size={32} />,
     },
     {
       to: '/',
-      text: 'Usuarios',
+      text: 'Users',
       icon: <LuUsers size={32} />,
-    },
-    {
-      to: '/messages',
-      text: 'Mensajes',
-      icon: <LuMessagesSquare size={32} />,
     },
   ];
 

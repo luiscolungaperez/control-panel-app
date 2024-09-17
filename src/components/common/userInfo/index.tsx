@@ -79,14 +79,15 @@ export const UserInfo: React.FC<Props> = ({
         {location.city} - {location.state}
       </span>
       <span style={{ textTransform: 'capitalize' }}>{gender}</span>
-
-      <div className={styles.actions}>
-        <Button
-          text='Remove user'
-          onClick={(e) => deleteUserConfirm(e, name)}
-        />
-        <Button text='Send message' onClick={(e) => sendMessage(e, name)} />
-      </div>
+      {redirect && (
+        <div className={styles.actions}>
+          <Button
+            text='Remove user'
+            onClick={(e) => deleteUserConfirm(e, name)}
+          />
+          <Button text='Send message' onClick={(e) => sendMessage(e, name)} />
+        </div>
+      )}
     </article>
   );
 };

@@ -11,6 +11,10 @@ export const useProfile = () => {
         const response = await useRequest<RandomUser.Result>();
         return response.results[0];
       },
+      gcTime: 1000 * 60 * 60,
+      staleTime: Infinity,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
     });
 
   return { profileData, loadingProfile };

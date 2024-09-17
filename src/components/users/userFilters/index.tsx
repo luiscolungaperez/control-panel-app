@@ -17,26 +17,28 @@ export const UserFilters: React.FC = () => {
   } = useUserFilters();
 
   return (
-    <article className={styles.filters}>
-      <Dropdown
-        options={nationalities}
-        label='Filter by natonality'
-        value={filters.nat}
-        onClick={updateNatFilter}
-      />
-      <Dropdown
-        options={genders}
-        label='Filter by gender'
-        value={filters.gender}
-        onClick={updateGenderFilter}
-      />
-      <Dropdown
-        options={agesOptions}
-        label='Filter by ages'
-        value={filters.ages}
-        onClick={updateAgesFilter}
-      />
+    <>
+      <article className={styles.filters}>
+        <Dropdown
+          options={nationalities}
+          label='Filter by natonality'
+          value={filters.nat}
+          onClick={updateNatFilter}
+        />
+        <Dropdown
+          options={genders}
+          label='Filter by gender'
+          value={filters.gender}
+          onClick={updateGenderFilter}
+        />
+        <Dropdown
+          options={agesOptions}
+          label='Filter by ages'
+          value={filters.ages}
+          onClick={updateAgesFilter}
+        />
+      </article>
       <Button text='Download CSV' onClick={() => download()} />
-    </article>
+    </>
   );
 };

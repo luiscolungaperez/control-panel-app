@@ -6,9 +6,8 @@
     font-size: 1.5rem;
     font-weight: 600;
   }
-
-  & .list {
-    display: grid;
-    grid-template-columns: minmax(288px, 1fr);
+  & .total {
+    font-size: 1rem;
+    font-weight: 500;
   }
 }

@@ -21,6 +21,7 @@ describe('User info component', () => {
           name={`${results[0].name.first} ${results[0].name.last}`}
           nationality={results[0].nat as TCountryCode}
           gender={results[0].gender}
+          age={results[0].dob.age}
           redirect={false}
         />
         ,
@@ -40,6 +41,7 @@ describe('User info component', () => {
           nationality={results[0].nat as TCountryCode}
           gender={results[0].gender}
           redirect={false}
+          age={results[0].dob.age}
         />
       </MemoryRouter>,
     );
@@ -57,6 +59,7 @@ describe('User info component', () => {
           nationality={results[0].nat as TCountryCode}
           gender={results[0].gender}
           redirect={false}
+          age={results[0].dob.age}
         />
       </MemoryRouter>,
     );
