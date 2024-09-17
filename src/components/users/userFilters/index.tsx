@@ -8,6 +8,8 @@ export const UserFilters: React.FC = () => {
     updateGenderFilter,
     nationalities,
     updateNatFilter,
+    agesOptions,
+    updateAgesFilter,
   } = useUserFilters();
 
   return (
@@ -18,12 +20,17 @@ export const UserFilters: React.FC = () => {
         value={filters.nat}
         onClick={updateNatFilter}
       />
-
       <Dropdown
         options={genders}
         label='Filter by gender'
         value={filters.gender}
         onClick={updateGenderFilter}
+      />
+      <Dropdown
+        options={agesOptions}
+        label='Filter by ages'
+        value={filters.ages}
+        onClick={updateAgesFilter}
       />
     </article>
   );

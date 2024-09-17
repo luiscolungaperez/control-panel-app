@@ -25,12 +25,32 @@ export const useUsers = () => {
         filters.limit,
         filters.gender,
         filters.nat,
+        filters.ages,
       ],
       queryFn: async () => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         return await useRequest<RandomUser.Result>(
           `?page=${filters.currentPage}&results=${filters.limit}&gender=${filters.gender}&nat=${filters.nat}`,
         );
+      },
+      select: (users) => {
+        if (filters.ages) {
+          const ages = filters.ages?.split('-');
+
+          const min = Number(ages[0]);
+          const max = Number(ages[1]);
+
+          const filterAges = users.results.filter(
+            (user) => user.dob.age >= min && user.dob.age <= max,
+          );
+
+          return {
+            ...users,
+            results: filterAges,
+          };
+        }
+
+        return users;
       },
       gcTime: 1000 * 60 * 60,
       placeholderData: (previousData) => previousData,
