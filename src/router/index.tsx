@@ -6,7 +6,7 @@ import User from '@/pages/user';
 import Users from '@/pages/users';
 import { createBrowserRouter, redirect } from 'react-router-dom';
 
-const isAuthenticated = localStorage.getItem('Authorization');
+const isAuthenticated = () => !!localStorage.getItem('Authorization');
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +14,8 @@ export const router = createBrowserRouter([
     path: '/login',
     Component: Login,
     loader() {
-      if (isAuthenticated) return redirect('/');
+      if (isAuthenticated()) return redirect('/');
+
       return null;
     },
   },
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
     path: '/',
     Component: Layout,
     loader() {
-      if (!isAuthenticated) return redirect('/login');
+      if (!isAuthenticated()) return redirect('/login');
 
       return null;
     },
