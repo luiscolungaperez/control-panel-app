@@ -14,7 +14,7 @@ export const Header: React.FC<Props> = ({ handleMenu }) => {
   const handleLogOut = () => {
     localStorage.removeItem('Authorization');
 
-    navigate('/login');
+    navigate('/login', { replace: true, unstable_flushSync: true });
   };
 
   return (
@@ -26,8 +26,8 @@ export const Header: React.FC<Props> = ({ handleMenu }) => {
 
       <Button
         type='button'
-        text='Cerrar sesión'
-        icon={<LuLogOut size={24} />}
+        text='Log out'
+        icon={<LuLogOut size={16} />}
         onClick={handleLogOut}
       />
     </header>

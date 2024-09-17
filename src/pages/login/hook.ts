@@ -15,7 +15,7 @@ export const useLogin = () => {
   const onSubmit: SubmitHandler<FieldValues> = ({ email, password }) => {
     if (email === 'test@test.com' && password === 'test2023') {
       localStorage.setItem('Authorization', 'true');
-      navigate('/');
+      navigate('/', { replace: true });
       reset();
     }
   };
