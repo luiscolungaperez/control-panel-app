@@ -1,6 +1,7 @@
 import { Modal } from '@/components/common/modal';
 import { Pagination } from '@/components/common/pagination';
 import { DeleteConfirm } from '@/components/users/deleteConfirm';
+import { MessageForm } from '@/components/users/messageForm';
 import { UserFilters } from '@/components/users/userFilters';
 import { UserList } from '@/components/users/userList';
 import { useUsers } from './hook';
@@ -37,7 +38,7 @@ const Users: React.FC = () => {
       </section>
       <Modal isOpen={filters.modalIsOpen} onClose={handleIsOpenModal}>
         {filters.actionName.type === 'message' ? (
-          <>delete</>
+          <MessageForm />
         ) : (
           <DeleteConfirm />
         )}

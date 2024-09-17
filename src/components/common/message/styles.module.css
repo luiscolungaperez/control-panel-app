@@ -1,0 +1,17 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 2px solid #83828252;
+  border-left: 0;
+  border-right: 0;
+  padding: 0.25rem 0;
+  & .title {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  & .message-text {
+    font-size: 0.75rem;
+  }
+}
