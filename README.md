@@ -46,3 +46,11 @@ Control panel app made with react, vite and vitest
 ```
 
 By default, the application is going to be exposed on `http://localhost:5173`.
+
+### User
+
+```
+email: test@test.com
+password: test2023
+```
+
